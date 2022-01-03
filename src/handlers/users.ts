@@ -9,7 +9,7 @@ const index = async (req: Request, res: Response) => {
   try {
     const users = await store.index();
     if (!users) {
-      return res.status(404).json({error:'user are not found'});
+      return res.status(404).json({error:'users are not found'});
     }
     return res.status(200).json(users);
   } catch (error) {
