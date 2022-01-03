@@ -62,9 +62,9 @@ describe('Orders model', () => {
       });
 
       const order = await orderStore.create({
-        product_id: product.id!,
+        product_id: product.id as number,
         quantity: 5,
-        user_id: newUser.id!,
+        user_id: newUser.id as number,
         status: 'active',
       });
 
@@ -97,9 +97,9 @@ describe('Orders model', () => {
 
       await orderStore.create({
         id: 1,
-        product_id: product.id!,
+        product_id: product.id as number,
         quantity: 5,
-        user_id: newUser.id!,
+        user_id: newUser.id as number,
         status: 'active',
       });
 
@@ -133,9 +133,9 @@ describe('Orders model', () => {
 
       await orderStore.create({
         id: 1,
-        product_id: product.id!,
+        product_id: product.id as number,
         quantity: 5,
-        user_id: newUser.id!,
+        user_id: newUser.id as number,
         status: 'active',
       });
 
