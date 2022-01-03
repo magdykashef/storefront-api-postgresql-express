@@ -1,9 +1,10 @@
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import userRoute from './handlers/users';
+
 import orderRoutes from './handlers/orders';
 import productRoutes from './handlers/products';
+import userRoutes from './handlers/users';
 
 dotenv.config();
 
@@ -22,7 +23,7 @@ app.get('/', function (req: Request, res: Response) {
     res.send('Main API route')
 });
 
-userRoute(app);
+userRoutes(app);
 orderRoutes(app);
 productRoutes(app);
 

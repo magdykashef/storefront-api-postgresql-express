@@ -24,7 +24,7 @@ const show = async (req: Request, res: Response) => {
   try {
     const product = await store.show(parseInt(req.params.id));
     if (!product) {
-      return res.status(404).json({error:'product not found'});
+      return res.status(404).json({error:'product is not found'});
     }
     return res.status(200).json(product);
   } catch (error) {
