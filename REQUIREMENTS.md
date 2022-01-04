@@ -55,9 +55,7 @@ Table: orders (id:number[primary key],user_id:number[foreign key to users table]
 - order_id
 - product_id of each product in the order
 - quantity of each product in the order
-- user_id
-- status of order (active or complete)
 
 ```bash
-Table: order_products (id:number[primary key], order_id:number[foreign key to orders table],product_id:number[foreign key to products table], quantity:number, user_id:number[foreign key to users table], status:varchar)
+Table: order_products (id:number[primary key], order_id:number[foreign key to orders table],product_id:number[foreign key to products table], quantity:number)
 ```
