@@ -5,19 +5,20 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 ## API Endpoints
 #### Products
-- Index   'products/'       [GET]
-- Show    'products/:id'    [GET]
-- Create  'products/'       [POST] [token required]
+- Index    `products/`       [GET]
+- Show     `products/:id`    [GET]
+- Create   `products/`       [POST] [token required]
 
 
 #### Users
-- Index   'users/'          [GET] [token required]
-- Show    'users/:id'       [GET] [token required]
-- Create  'users/'          [POST]
+- Index     `users/`      [GET] [token required]
+- Show      `users/:id`   [GET] [token required]
+- Create    `users/`      [POST]
 
 #### Orders
-- Show    'orders/:user_id' [GET] [token required]
-- Create  'orders/'         [POST] [token required]
+- Show          `orders/:user_id`       [GET] [token required]
+- Create        `orders/`               [POST] [token required]
+- add product   `orders/:id/products`   [POST] [token required]
 
 
 ## Data Shapes
@@ -42,11 +43,21 @@ Table: users (id:number[primary key], firstname:varchar, lastname:varchar, passw
 
 #### Orders
 - id
-- id of each product in the order
+- user_id
+- status of order (active or complete)
+
+```bash
+Table: orders (id:number[primary key],user_id:number[foreign key to users table], status:varchar)
+```
+
+#### OrderProducts
+- id
+- order_id
+- product_id of each product in the order
 - quantity of each product in the order
 - user_id
 - status of order (active or complete)
 
 ```bash
-Table: orders (id:number[primary key], product_id:number[foreign key to products table], quantity:number, user_id:number[foreign key to users table], status:varchar)
+Table: order_products (id:number[primary key], order_id:number[foreign key to orders table],product_id:number[foreign key to products table], quantity:number, user_id:number[foreign key to users table], status:varchar)
 ```
