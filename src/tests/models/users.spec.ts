@@ -13,9 +13,7 @@ UPDATE products SET id = DEFAULT`;
 const deleteAllOrders = `DELETE FROM orders;
 ALTER SEQUENCE orders_id_seq RESTART WITH 1;
 UPDATE orders SET id = DEFAULT`;
-// const deleteAllOrderProducts = `DELETE FROM order_products;
-// ALTER SEQUENCE order_products_id_seq RESTART WITH 1;
-// UPDATE order_products SET id = DEFAULT`;
+
 
 describe('Users model', () => {
   beforeEach(async () => {
@@ -24,7 +22,7 @@ describe('Users model', () => {
       await conn.query(deleteAllUsers);
       await conn.query(deleteAllProducts);
       await conn.query(deleteAllOrders);
-      // await conn.query(deleteAllOrderProducts);
+
       conn.release();
     } catch (error) {
       throw new Error(`unable to delete all recored beforeEach test: ${error}`);
@@ -37,7 +35,7 @@ describe('Users model', () => {
       await conn.query(deleteAllUsers);
       await conn.query(deleteAllProducts);
       await conn.query(deleteAllOrders);
-      // await conn.query(deleteAllOrderProducts);
+
       conn.release();
     } catch (error) {
       throw new Error(`unable to delete all recored afterEach test: ${error}`);

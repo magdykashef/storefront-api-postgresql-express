@@ -8,9 +8,6 @@ UPDATE users SET id = DEFAULT`;
 const deleteAllProducts = `DELETE FROM products;
 ALTER SEQUENCE products_id_seq RESTART WITH 1;
 UPDATE products SET id = DEFAULT`;
-const deleteAllOrders = `DELETE FROM orders;
-ALTER SEQUENCE orders_id_seq RESTART WITH 1;
-UPDATE orders SET id = DEFAULT`;
 
 
 const request = supertest(app);
@@ -42,7 +39,7 @@ describe('Test /products/ responses', () => {
       const conn = await client.connect();
       await conn.query(deleteAllUsers);
       await conn.query(deleteAllProducts);
-      await conn.query(deleteAllOrders);
+
       conn.release();
     } catch (error) {
       throw new Error(`unable to delete all recored afterEach test: ${error}`);
