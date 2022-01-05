@@ -104,7 +104,6 @@ describe('Orders model', () => {
   it('index method should return a list of orders',
     async () => {
       await orderStore.create({
-        id: 1,
         user_id: newUser.id as number,
         status: 'active',
       });
@@ -126,7 +125,6 @@ describe('Orders model', () => {
       });
 
       const newOrder = await orderStore.create({
-        id: 1,
         user_id: newUser.id as number,
         status: 'active',
       });
@@ -150,7 +148,6 @@ describe('Orders model', () => {
       });
 
       const newOrder = await orderStore.create({
-        id: 1,
         user_id: newUser.id as number,
         status: 'active',
       });
