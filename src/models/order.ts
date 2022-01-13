@@ -33,7 +33,7 @@ export class OrderStore {
 
   async show(userId: number): Promise<OrderProducts> {
     try {
-      const sql = 'SELECT * from orders JOIN order_products ON (orders.id = order_products.id) WHERE user_id=($1)';
+      const sql = 'SELECT * from orders JOIN order_products ON (orders.id = order_products.order_id) WHERE user_id=($1)';
       const conn = await client.connect();
       const result = await conn.query(sql, [userId]);
       const order = result.rows[0] as OrderProducts;

@@ -7,7 +7,7 @@
     "start": "npx db-migrate up && ts-node src/server.ts",
     "dev": "npx db-migrate up && nodemon src/server.ts",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
-    "test": "replace 'ENV=dev' 'ENV=test' .env && npx db-migrate --env test reset && npx db-migrate --env test up && jasmine-ts && npx db-migrate --env test reset && replace 'ENV=test' 'ENV=dev' .env",
+    "test": "export ENV=test && npx db-migrate --env test reset && npx db-migrate --env test up && jasmine-ts && npx db-migrate --env test reset",
     "tsc": "tsc"
   },
   "author": "Udacity",
@@ -38,7 +38,6 @@
     "jasmine-spec-reporter": "^7.0.0",
     "jasmine-ts": "^0.3.0",
     "nodemon": "^2.0.15",
-    "replace": "^1.2.1",
     "supertest": "^6.1.6",
     "ts-node": "^9.1.1",
     "tsc-watch": "^4.2.9",
